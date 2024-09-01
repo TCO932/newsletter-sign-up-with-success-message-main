@@ -16,6 +16,8 @@
     /* primary */
     --color-tomato: hsl(4, 100%, 67%);
     --color-tomato-transparent: hsla(4, 100%, 67%, 0.2);
+    --color-ruby: hsl(348, 100%, 66%);
+    --color-orange: hsl(14, 100%, 62%);
 
     /* neutral */
     --color-dark-slate-grey: hsl(234, 29%, 20%);
@@ -133,7 +135,7 @@ input {
     padding: var(--spacing-4);
     margin-bottom: var(--spacing-6);
 
-    color: var(--color-grey);
+    color: var(--color-dark-slate-grey);
     font-family: Roboto;
     font-size: 0.9rem;
 
@@ -161,10 +163,10 @@ input.submited:focus-visible:invalid {
 
 
 button {
-    border: 1px solid var(--color-grey);
+    border: none;
     border-radius: 0.5rem;
 
-    background-color: var(--color-dark-slate-grey);
+    background: var(--color-dark-slate-grey);
     padding: var(--spacing-4);
 
     color: var(--color-white);
@@ -177,11 +179,16 @@ button:hover {
     cursor: pointer;
 }
 
+button:active {
+    color: var(--color-white);
+    background: linear-gradient(to right, var(--color-ruby), var(--color-orange));
+    box-shadow: 0px 8px 30px -4px var(--color-tomato);
+}
+
 article#success {
     display: none;
     
     height: 100vh;
-    display: flex;
     flex-direction: column;
 
     box-sizing: border-box;
@@ -200,7 +207,7 @@ article#success {
 #success .content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 35%;
     flex: 1;
 
     gap: var(--spacing-6);
@@ -212,4 +219,58 @@ article#success {
 
 #user-email {
     font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    main {
+        height: 100vh;
+        background-color: var(--color-charcoal-grey);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    article#subscribe  {
+        max-height: 55%;
+        width: clamp(375px, 100%, 928px);
+        box-sizing: border-box;
+
+        flex-direction: row-reverse;
+
+        background-color: var(--color-white);
+        padding: var(--spacing-6);
+        padding-left: 0;
+        border-radius: var(--spacing-10);
+
+        box-shadow: 0px 0px 20px 8px var(--color-dark-slate-grey);
+    }
+
+    #subscribe .content {
+        align-self: center;
+        padding: 0px;
+        margin: 0 clamp(var(--spacing-1), calc(var(--spacing-1) + 10%), var(--spacing-16));
+    }
+    
+    .pic {
+        background-image: url('assets/images/illustration-sign-up-desktop.svg');
+        background-size: cover;
+
+        border-radius: var(--spacing-4);
+    }
+
+    article#success {
+        height: 500px;
+        width: clamp(375px, 100%, 500px);
+        box-sizing: border-box;
+        padding: var(--spacing-10) var(--spacing-12);
+        box-shadow: 0px 0px 20px 8px var(--color-dark-slate-grey);
+        border-radius: var(--spacing-10);
+        background-color: var(--color-white);
+    }
+
+    #success .content {
+        margin: 0;
+    }
+
 }

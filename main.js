@@ -13,7 +13,7 @@ function handleSubmit(e) {
     const errorMessage = document.getElementById('error-message');
 
     if (!emailInput.checkValidity()) {
-        errorMessage.textContent = emailInput.validationMessage;
+        errorMessage.textContent = 'Valid email required';
         errorMessage.style.display = 'block';
         emailInput.classList.add('submited')
     } else {
